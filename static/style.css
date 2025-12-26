@@ -1,7 +1,11 @@
+@font-face {
+	font-family: Habbo Ubuntu;
+	src: url("./font/Ubuntu.ttf");
+}
+
 * {
 	box-sizing: border-box;
 	outline: none;
-/*	opacity: 0.97;*/
 	image-rendering: pixelated;
     image-rendering: crisp-edges;
 	transition:
@@ -10,7 +14,7 @@
 		color .3s;
 }
 body {
-	font-family: Ubuntu, sans-serif;
+	font-family: Habbo Ubuntu, sans-serif;
 	text-align: center;
 	/* background-color: #eee;
 	
@@ -29,7 +33,14 @@ body {
     margin: 0;
 }
 
-main {
+body > header > img {
+	position: absolute;
+	left: 50%;
+	top: 100px;
+	transform: translate(-50%, -50%);
+}
+
+section {
 	width: 738px;
     padding: 5px;
     margin: 5px auto;
@@ -39,15 +50,18 @@ main {
     overflow: hidden;
 }
 
-main > div {
+section > header,
+section > main {
 	padding: 5px;
     margin-bottom: 5px;
     background-color: #28a661;
     border-radius: 5px;
     overflow: hidden;
 }
-main > div:last-child {
+section > main {
 	margin: 0;
+	display: flex;
+	gap: 5px;
 }
 
 h3 {
@@ -56,25 +70,24 @@ h3 {
 	font-weight: 100;
 }
 
-div > div[id] {
+main > div[id] {
 	background-color: #fff;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	padding: 5px;
-height: 370px;
 	overflow: hidden;
 }
-div > div[id] fieldset {
+main > div[id] fieldset {
 	line-height: 1.5em;
 	display: inline-block;
 	border: 1px solid grey;
 	border-radius: 3px;
 	padding: 5px;
 }
-div > div[id] fieldset legend {
+main > div[id] fieldset legend {
 	text-align: left;
 }
-div > div[id] span {
+main > div[id] span {
 	display: inline-block;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -82,7 +95,6 @@ div > div[id] span {
 	height: 30px;
 }
 div#settings {
-	float: left;
 	width: 316px;
 	display: flex;
 	flex-wrap: wrap;
@@ -201,7 +213,7 @@ input {
 	background-image: url(img/totem_effects_icon_staff.png);
 }
 div#preview {
-	float: right;
+	position: relative;
 	width: 395px;
 	background-image: url(img/piso.png);
 	background-position: center;
